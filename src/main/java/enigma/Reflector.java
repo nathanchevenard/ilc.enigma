@@ -4,7 +4,7 @@ package enigma;
  *  @author
  */
 public class Reflector extends Rotor {
-	
+    
 	int[] reflection;
 	
 	public static Reflector reflectorFactory(String str){
@@ -22,6 +22,7 @@ public class Reflector extends Rotor {
 	}
         
     public int convertForward(int p) {
+        //return ((reflection[((p)%26+26)%26])%26+26)%26;
         return ((reflection[((p)%26+26)%26])%26+26)%26;
     }
 
