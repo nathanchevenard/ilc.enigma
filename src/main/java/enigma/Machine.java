@@ -13,7 +13,7 @@ public class Machine {
 		middleRotor = middle;
 		rightRotor = right;
 	}
-
+        
 	public void setPositions(String setting) {
 		char[] charSettings = setting.toCharArray();
 		reflector.setPosition(Rotor.toIndex(charSettings[0]));
@@ -53,7 +53,7 @@ public class Machine {
 
 	}
 
-	void advanceRotors() {
+	/*void advanceRotors() {
 		boolean advanceLeft = false;
 		boolean advanceMiddle = false;
 		boolean advanceRight = true;
@@ -76,5 +76,26 @@ public class Machine {
 		if (advanceMiddle) {
 			middleRotor.advance();
 		}
+	}*/
+        
+        
+        void advanceRotors() {
+		boolean advanceMiddle = false;
+                
+		if (middleRotor.atNotch()) {
+			advanceMiddle = true;
+			leftRotor.advance();
+		}
+                
+		if (rightRotor.atNotch()) {
+			advanceMiddle = true;
+		}
+                
+		if (advanceMiddle) {
+			middleRotor.advance();
+		}
+                
+                rightRotor.advance();
 	}
+      
 }

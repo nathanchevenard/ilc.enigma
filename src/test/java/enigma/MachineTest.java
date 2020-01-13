@@ -37,5 +37,25 @@ public class MachineTest {
 		String actual = m.convert(msg2);
 		assertEquals(expected, actual);
 	}
+        
+        @Test
+        public void advanceRotors_False() {
+            Rotor left = Rotor.rotorFactory(msg1, code1);
+            Rotor middle = Rotor.rotorFactory(msg1, code1);
+            Rotor right = Rotor.rotorFactory(msg1, code1);
+            Reflector reflector = Reflector.reflectorFactory(msg1);
+            
+            Machine m = new Machine();
+            m.configure(reflector, left, middle, right, config);
+            
+            Machine m2 = m;
+            
+            m.advanceRotors();
+            
+            /*on doit tester si chaque rotor a été modifié ou non en fonction
+            de la position et des notch
+            */
+            
+        }
 
 }

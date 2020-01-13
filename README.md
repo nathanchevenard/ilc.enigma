@@ -43,8 +43,8 @@ Hereafter, for each classes give function to be tested. Remember that all functi
 ### Configuration code :
 - * B III IV I AXLE
 - FROM his shoulder Hiawatha / HYIHL BKOML IUYDC MPPSF SZW
-- Took the camera of rosewood / SQCNJ EXNUO JYRZE KTCNB DGU
+- Took the camera of rosewood / SQCNJ EXNUO JYRZE KTCNB DGU 
 
 
 
- 
+
