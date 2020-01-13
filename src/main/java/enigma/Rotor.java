@@ -3,6 +3,7 @@ package enigma;
 public class Rotor {
 
     private int position;
+    protected int tailleTableau = 26;
     private int[] cipher = new int[26];
     private int[] bcipher = new int[26];
     private int notch1 = -1;
@@ -45,15 +46,17 @@ public class Rotor {
 	}
 
     public int convertForward(int p) {
-        return ((cipher[((p+position)%26+26)%26]-position)%26+26)%26;
+        return ((cipher[((p+position)%tailleTableau+tailleTableau)%tailleTableau]-position)%tailleTableau+tailleTableau)%tailleTableau;
+        //return (cipher[(p+position)%tailleTableau]-position)%tailleTableau;
     }
 
     public int convertBackward(int e) {
-        return ((bcipher[((e+position)%26+26)%26]-position)%26+26)%26;
+        return ((bcipher[((e+position)%tailleTableau+tailleTableau)%tailleTableau]-position)%tailleTableau+tailleTableau)%tailleTableau;
+        //return (bcipher[(e+position)%tailleTableau]-position)%tailleTableau;
     }
     
     public void advance() {
-        position = (position+1) % 26;
+        position = (position+1) % tailleTableau;
     }
     
     protected boolean atNotch() {
@@ -65,11 +68,11 @@ public class Rotor {
     }
 
     protected static int toIndex(char c) {
-        return c - 'A';
+        return (int)(c) - (int)('A');
     }
     
 	private void createBCipher() {
-		for(int i =0; i<26; i++)
+		for(int i =0; i<tailleTableau; i++)
 			bcipher[cipher[i]] = i;
 	}
 
